@@ -55,14 +55,14 @@ class SIS(LensProfileBase):
 
         :return:
         """
-        theta_E = np.pi * 2 * rho0
+        theta_E = jnp.pi * 2 * rho0
         return theta_E
 
     @staticmethod
     def theta2rho(theta_E):
         """Converts projected density parameter (in units of deflection) into 3d density
         parameter :param theta_E: Einstein radius :return:"""
-        fac1 = np.pi * 2
+        fac1 = jnp.pi * 2
         rho0 = theta_E / fac1
         return rho0
 
@@ -70,7 +70,7 @@ class SIS(LensProfileBase):
     def mass_3d(r, rho0):
         """Mass enclosed a 3d sphere or radius r :param r: radius in angular units
         :param rho0: density at angle=1 :return: mass in angular units."""
-        mass_3d = 4 * np.pi * rho0 * r
+        mass_3d = 4 * jnp.pi * rho0 * r
         return mass_3d
 
     def mass_3d_lens(self, r, theta_E):
@@ -91,7 +91,7 @@ class SIS(LensProfileBase):
         :param rho0:
         :return:
         """
-        alpha = 2 * rho0 * np.pi**2
+        alpha = 2 * rho0 * jnp.pi**2
         mass_2d = alpha * r
         return mass_2d
 
@@ -117,7 +117,7 @@ class SIS(LensProfileBase):
         """
         x_ = x - center_x
         y_ = y - center_y
-        r = np.sqrt(x_**2 + y_**2)
+        r = jnp.sqrt(x_**2 + y_**2)
         mass_3d = self.mass_3d(r, rho0)
         pot = mass_3d / r
         return pot
@@ -153,6 +153,6 @@ class SIS(LensProfileBase):
         """
         x_ = x - center_x
         y_ = y - center_y
-        r = np.sqrt(x_**2 + y_**2)
-        sigma = np.pi * rho0 / r
+        r = jnp.sqrt(x_**2 + y_**2)
+        sigma = jnp.pi * rho0 / r
         return sigma
