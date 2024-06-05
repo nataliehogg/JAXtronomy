@@ -1,4 +1,4 @@
-__author__ = "nataliehogg"
+__author__ = ["sibirrer", "nataliehogg"]
 
 import jax.numpy as jnp
 from lenstronomy.LensModel.profile_list_base import ProfileListBase
